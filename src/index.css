@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-bg-primary: #090C12;
+  --color-bg-secondary: #0F1420;
+  --color-bg-tertiary: #141927;
+  --color-bg-input: #1A2235;
+
+  /* Borders */
+  --color-border: #1F2A42;
+  --color-border-subtle: #172038;
+
+  /* Accent */
+  --color-accent: #00E5CC;
+  --color-accent-dim: #00B5A0;
+  --color-accent-muted: #003D36;
+
+  /* Chat bubbles */
+  --color-bubble-sent: #003D36;
+  --color-bubble-recv: #141927;
+
+  /* Text */
+  --color-text-primary: #E2E8F4;
+  --color-text-secondary: #7A8FA8;
+  --color-text-muted: #4A5A72;
+
+  /* Status */
+  --color-online: #22C55E;
+  --color-danger: #F87171;
+
+  /* Fonts */
+  --font-sans: "Outfit", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+  /* *  {
+    box-sizing: border-box;
+  } */
+
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #090c12;
+    color: #e2e8f4;
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2a42;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a3a58;
+  }
+
+  /* Textarea resize handle */
+  textarea {
+    scrollbar-width: thin;
+    scrollbar-color: #1f2a42 transparent;
+  }
+
+  @keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reconnect {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
