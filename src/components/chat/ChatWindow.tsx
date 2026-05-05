@@ -426,7 +426,7 @@ export function ChatWindow() {
               disabled:opacity-40 disabled:cursor-not-allowed
               transition-all active:scale-95
               flex items-center justify-center shrink-0
-              shadow-lg shadow-accent/20
+              shadow-lg shadow-accent/20 cursor-pointer
             "
             title="Send encrypted message"
           >
