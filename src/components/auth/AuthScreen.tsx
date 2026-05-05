@@ -13,9 +13,9 @@ function LockIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="lucide lucide-message-circle-dashed-icon lucide-message-circle-dashed"
     >
       <path d="M10.1 2.182a10 10 0 0 1 3.8 0" />
@@ -62,6 +62,11 @@ export function AuthScreen() {
     setError("");
 
     if (mode === "register") {
+      if (!/^[a-zA-Z0-9_-]{3,32}$/.test(username)) {
+        setError("Username must be 3–32 characters: letters, digits, _ or -");
+        triggerShake();
+        return;
+      }
       if (password !== confirmPass) {
         setError("Passwords do not match");
         triggerShake();
@@ -135,7 +140,7 @@ export function AuthScreen() {
         {/* Card */}
         <div className="bg-bg-secondary border border-border rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
           {/* Tab switcher */}
-          <div className="flex border-b border-border cursorp">
+          <div className="flex border-b border-border">
             {(["login", "register"] as Mode[]).map((m) => (
               <button
                 key={m}
