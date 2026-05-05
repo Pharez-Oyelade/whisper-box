@@ -34,9 +34,14 @@ export class WhisperSocket {
   private maxDelay = 30_000;
   private active = false;
   private getToken: () => string | null;
+  private refreshToken: (() => Promise<string>) | null = null;
 
   constructor(getToken: () => string | null) {
     this.getToken = getToken;
+  }
+
+  setRefreshToken(fn: () => Promise<string>) {
+    this.refreshToken = fn;
   }
 
   connect() {
@@ -44,7 +49,15 @@ export class WhisperSocket {
     this._open();
   }
 
-  private _open() {
+  private async _open() {
+    if (!this.active) return;
+
+    if (this.refreshToken) {
+      try {
+        await this.refreshToken();
+      } catch {}
+    }
+
     const token = this.getToken();
     if (!token || !this.active) return;
 
