@@ -36,7 +36,7 @@ export function onSessionExpired(cb: () => void) {
 
 let _refreshing: Promise<string> | null = null;
 
-async function refreshAccessToken(): Promise<string> {
+export async function refreshAccessToken(): Promise<string> {
   if (_refreshing) return _refreshing;
 
   _refreshing = (async () => {
@@ -64,8 +64,6 @@ async function refreshAccessToken(): Promise<string> {
 
   return _refreshing;
 }
-
-// Authenticated Fetch
 
 async function authFetch(
   path: string,
