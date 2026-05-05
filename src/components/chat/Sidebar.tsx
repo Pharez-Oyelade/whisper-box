@@ -97,9 +97,9 @@ export function Sidebar() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-message-circle-dashed-icon lucide-message-circle-dashed"
               >
                 <path d="M10.1 2.182a10 10 0 0 1 3.8 0" />
