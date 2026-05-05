@@ -105,6 +105,7 @@ function MessageBubble({
     <div
       className={`flex items-end gap-2 ${isSent ? "flex-row-reverse" : "flex-row"} animate-fade-in`}
     >
+      {/* Avatar placeholder */}
       <div className="w-7 h-7 shrink-0">
         {!isSent && showAvatar && (
           <div
@@ -163,7 +164,7 @@ function MessageBubble({
 }
 
 export function ChatWindow() {
-  const { state, sendMessage, loadOlderMessages } = useApp();
+  const { state, sendMessage, loadOlderMessages, closeConversation } = useApp();
   const {
     activeConversationId,
     conversations,
@@ -253,6 +254,26 @@ export function ChatWindow() {
     <div className="flex-1 flex flex-col bg-bg-primary min-w-0">
       {/* Header */}
       <div className="flex items-center gap-3 px-5 py-3.5 border-b border-border bg-bg-secondary/80 backdrop-blur-sm shrink-0">
+        {/* Back button — mobile only */}
+        <button
+          onClick={closeConversation}
+          className="md:hidden flex items-center justify-center w-8 h-8 -ml-1 rounded-lg text-text-muted hover:text-text-primary hover:bg-bg-input transition-colors shrink-0 cursor-pointer"
+          aria-label="Back to conversations"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.5}
+            className="w-4 h-4"
+          >
+            <path
+              d="M15 18l-6-6 6-6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
         <div className="relative shrink-0">
           <div
             className={`w-9 h-9 rounded-xl bg-gradient-to-br ${avatarGradient(peerId)} flex items-center justify-center text-white text-sm font-bold`}
