@@ -7,27 +7,25 @@ type Mode = "login" | "register";
 function LockIcon() {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
-      className="w-full h-full"
-      strokeWidth={1.5}
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      className="lucide lucide-message-circle-dashed-icon lucide-message-circle-dashed"
     >
-      <rect
-        x="5"
-        y="11"
-        width="14"
-        height="10"
-        rx="2"
-        stroke="currentColor"
-        fill="none"
-      />
-      <path
-        d="M8 11V7a4 4 0 0 1 8 0v4"
-        stroke="currentColor"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <circle cx="12" cy="16" r="1.5" fill="currentColor" />
+      <path d="M10.1 2.182a10 10 0 0 1 3.8 0" />
+      <path d="M13.9 21.818a10 10 0 0 1-3.8 0" />
+      <path d="M17.609 3.72a10 10 0 0 1 2.69 2.7" />
+      <path d="M2.182 13.9a10 10 0 0 1 0-3.8" />
+      <path d="M20.28 17.61a10 10 0 0 1-2.7 2.69" />
+      <path d="M21.818 10.1a10 10 0 0 1 0 3.8" />
+      <path d="M3.721 6.391a10 10 0 0 1 2.7-2.69" />
+      <path d="m6.163 21.117-2.906.85a1 1 0 0 1-1.236-1.169l.965-2.98" />
     </svg>
   );
 }
@@ -137,13 +135,13 @@ export function AuthScreen() {
         {/* Card */}
         <div className="bg-bg-secondary border border-border rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
           {/* Tab switcher */}
-          <div className="flex border-b border-border">
+          <div className="flex border-b border-border cursorp">
             {(["login", "register"] as Mode[]).map((m) => (
               <button
                 key={m}
                 onClick={() => switchMode(m)}
                 className={`
-                  flex-1 py-3.5 text-sm font-medium transition-colors capitalize
+                  flex-1 py-3.5 text-sm font-medium transition-colors capitalize cursor-pointer
                   ${
                     mode === m
                       ? "text-accent border-b-2 border-accent -mb-px bg-accent/5"
@@ -233,7 +231,7 @@ export function AuthScreen() {
                 disabled:opacity-50 disabled:cursor-not-allowed
                 transition-all active:scale-[0.98]
                 flex items-center justify-center gap-2
-                shadow-lg shadow-accent/20
+                shadow-lg shadow-accent/20 cursor-pointer
               "
             >
               {loading ? (

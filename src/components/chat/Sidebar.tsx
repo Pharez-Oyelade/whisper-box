@@ -260,7 +260,7 @@ export function Sidebar() {
           </div>
           <button
             onClick={logout}
-            className="text-text-muted hover:text-danger transition-colors p-1.5 rounded-lg hover:bg-danger/10"
+            className="text-text-muted hover:text-danger transition-colors p-1.5 rounded-lg hover:bg-danger/10 cursor-pointer"
             title="Sign out"
           >
             <svg
